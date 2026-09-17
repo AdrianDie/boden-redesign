@@ -261,6 +261,86 @@ h2{font-size:clamp(1.7rem,4vw,2.6rem); font-weight:600; margin:0 0 1.2rem;}
 .meny-more{margin-top:2.4rem; display:flex; flex-wrap:wrap; gap:1rem; align-items:center;}
 .meny-more p{color:var(--muted); font-size:.92rem; margin:0;}
 
+/* ---------- Menyside ---------- */
+.page-hero{
+  position:relative; min-height:300px; display:flex; align-items:center;
+  overflow:hidden; padding:calc(var(--header-h) + 30px) clamp(16px,5vw,32px) 40px;
+}
+.page-hero-media{position:absolute; inset:0; z-index:0;}
+.page-hero-media img{width:100%; height:100%; object-fit:cover; object-position:center 40%;}
+.page-hero-overlay{position:absolute; inset:0; background:var(--overlay);}
+.page-hero-inner{position:relative; z-index:1; max-width:var(--container); margin:0 auto; width:100%; color:var(--paper);}
+.page-hero h1{font-size:clamp(2rem,5vw,3rem); margin:0 0 .7rem;}
+.page-hero p{margin:0; opacity:.92; max-width:520px; font-size:1.02rem; line-height:1.6;}
+
+.meny-nav{
+  position:sticky; top:var(--header-h); z-index:150; background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.meny-nav-inner{
+  max-width:var(--container); margin:0 auto; padding:.9rem clamp(16px,5vw,32px);
+  display:flex; gap:.6rem; overflow-x:auto; scrollbar-width:none;
+}
+.meny-nav-inner::-webkit-scrollbar{display:none;}
+.meny-nav-inner a{
+  flex:0 0 auto; padding:.5rem 1rem; border-radius:999px; border:1px solid var(--line);
+  font-size:.85rem; font-weight:600; white-space:nowrap; color:var(--muted);
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.meny-nav-inner a:hover{border-color:var(--tan-deep); color:var(--ink);}
+
+.meny-page-section{background:var(--paper); scroll-margin-top:calc(var(--header-h) + 64px);}
+.meny-page-section:nth-of-type(even){background:var(--cream);}
+.meny-page-inner{max-width:var(--container); margin:0 auto;}
+.meny-cat-title{
+  font-family:"Fraunces",serif; font-size:1.3rem; font-weight:600; margin:2.2rem 0 1rem;
+}
+.meny-cat-title:first-child{margin-top:0;}
+.meny-cat-note{color:var(--muted); font-size:.9rem; margin:0 0 1.4rem; font-style:italic;}
+
+.menu-row-list{display:flex; flex-direction:column;}
+.menu-row{
+  display:flex; justify-content:space-between; align-items:baseline; gap:1.2rem;
+  padding:.95rem 0; border-bottom:1px solid var(--line);
+}
+.menu-row-main{flex:1; min-width:0;}
+.menu-row-name{font-weight:600; font-size:1rem; margin:0 0 .2rem;}
+.menu-row-desc{color:var(--muted); font-size:.88rem; line-height:1.55; margin:0;}
+.menu-row-price{
+  font-family:"Work Sans",sans-serif; font-weight:700; color:var(--tan-deep);
+  white-space:nowrap; font-size:.95rem; flex-shrink:0;
+}
+.menu-cols{display:grid; grid-template-columns:1fr; gap:0 3rem;}
+@media (min-width:820px){
+  .menu-cols{grid-template-columns:1fr 1fr;}
+}
+.allergen-note{
+  color:var(--muted); font-size:.8rem; line-height:1.6; max-width:var(--container);
+  margin:3rem auto 0; padding:0 clamp(16px,5vw,32px) 3rem;
+}
+
+/* ---------- Finn oss / kart ---------- */
+.kart{background:var(--ink); color:var(--paper); padding-top:0; padding-bottom:0;}
+.kart-inner{
+  max-width:var(--container); margin:0 auto;
+  display:grid; grid-template-columns:340px 1fr; min-height:420px;
+}
+.kart-card{
+  padding:clamp(40px,6vw,64px) clamp(20px,3vw,32px);
+  display:flex; flex-direction:column; justify-content:center; gap:1.6rem;
+}
+.kart-card h2{color:var(--paper);}
+.kart-info{display:flex; flex-direction:column; gap:1.1rem;}
+.kart-info-item{display:flex; align-items:flex-start; gap:.8rem;}
+.kart-info-item svg{flex-shrink:0; margin-top:2px; color:var(--tan);}
+.kart-info-item h4{
+  margin:0 0 .2rem; font-family:"Work Sans",sans-serif; font-size:.78rem; text-transform:uppercase;
+  letter-spacing:.1em; color:var(--muted-on-dark); font-weight:700;
+}
+.kart-info-item p, .kart-info-item a{margin:0; font-size:.98rem; color:var(--paper);}
+.kart-info-item a:hover{opacity:.8;}
+.kart-map{width:100%; height:100%; min-height:320px; border:0; filter:grayscale(.15) contrast(1.05);}
+
 /* ---------- Om oss ---------- */
 .om{background:var(--paper);}
 .om-inner{
@@ -335,6 +415,8 @@ body{overflow-x:hidden;}
 @media (max-width:900px){
   .om-inner{grid-template-columns:1fr;}
   .om-media{order:-1;}
+  .kart-inner{grid-template-columns:1fr;}
+  .kart-map{min-height:280px;}
 }
 
 @media (max-width:760px){
